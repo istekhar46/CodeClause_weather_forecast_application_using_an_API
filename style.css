@@ -1,82 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: none;
     outline: none;
-}
-
-header {
-    display: flex;
-    justify-content: space-around;
-    border: solid 0.5px;
-    height: 70px;
-    align-items: center;
-    background-image: linear-gradient(#24252A, black);
-    opacity: 86%;
-}
-
-.logo {
-    font-size: 30px;
-    font-family: serif;
-    /* margin-left: 40px; */
-    color: gray;
-}
-
-header li {
-    color: gray;
-    display: inline;
-    padding: 0 5px;
-}
-
-body {
-    height: 100vh;
-    width: 100%;
-    font-family: 'poppins', sans-serif;
-
-}
-
-
-#btn {
-
-    background-color: #0088a9;
-    border: solid 0.5px;
-    transition: all 0.4s ease 0s;
-    padding: 9px 25px;
-
-}
-
-#input-head {
-    padding: 9px 25px;
     font-family: sans-serif;
-    font-weight: 500;
-
 }
 
-/* body */
-.window {
-    background-color: #000;
+body{
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    background-color: #000;
 }
 
-
-.container {
+.container{
     width: 400px;
     height: min-content;
     background-color: #fff;
     border-radius: 12px;
-    padding: 20px;
-    /* margin-top: 0; */
-
+    padding: 28px;
 }
 
-.search-box {
+.search-box{
     width: 100%;
     height: min-content;
     display: flex;
@@ -84,105 +31,115 @@ body {
     align-items: center;
 }
 
-.search-box input {
+.search-box input{
     width: 84%;
     font-size: 20px;
     text-transform: capitalize;
     color: #000;
     background-color: #e6f5fb;
-    padding: 12px 12px;
+    padding: 12px 16px;
     border-radius: 14px;
 }
 
-.search-box input::placeholder {
+.search-box input::placeholder{
     color: #000;
 }
 
-.search-box button {
+.search-box button{
     width: 46px;
     height: 46px;
+    background-color: #e6f5fb;
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
-    background-color: #e6f5fb;
 }
 
-.search-box button:hover {
+.search-box button:hover{
     color: #fff;
     background-color: #ababab;
 }
 
-.weather-body {
-    display: flex;
+.weather-body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-block: 20px;
-
+    display: none;
 }
-
-.weather-body img {
+.weather-body img{
     width: 60%;
 }
 
-.weather-box {
+.weather-box{
     margin-block: 20px;
     text-align: center;
 }
 
-
-.weather-box .temperature {
+.weather-box .temperature{
     font-size: 40px;
+    font-weight: 800;
+    position: relative;
+}
+
+.weather-box .temperature sup{
+    font-size: 20px;
+    position: absolute;
     font-weight: 600;
 }
 
-.weather-box .temperature sup {
-    font-size: 20px;
-    position: absolute;
-}
-
-.weather-box .description {
+.weather-box .description{
     font-size: 20px;
     font-weight: 700;
     text-transform: capitalize;
 }
 
-.weather-details {
+.weather-details{
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
 }
 
-.humidity,
-.wind {
+.humidity, .wind{
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.humidity {
+.humidity{
     margin-left: 20px;
 }
 
-.wind {
+.wind{
     margin-right: 20px;
 }
 
-.weather-details i {
+.weather-details i{
     font-size: 36px;
 }
 
-.weather-details .text {
+.weather-details .text{
     margin-left: 10px;
+    font-size: 16px;
+}
+
+.text span{
+    font-size: 20px;
     font-weight: 700;
 }
 
-.city-name {
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
+.location-not-found{
+    margin-top: 20px;
+    display: none;
     align-items: center;
-    margin: 20px 0;
-    text-transform: capitalize;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.location-not-found h1{
+    font-size: 20px;
+    color: #6b6b6b;
+    margin-block-end: 15px;
+}
+.location-not-found img{
+    width: 80%;
 }
