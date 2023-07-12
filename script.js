@@ -37,19 +37,19 @@ async function checkWeather(city){
 
     switch(weather_data.weather[0].main){
         case 'Clouds':
-            weather_img.src = "/assets/cloud.png";
+            weather_img.src = "https://github.com/istekhar46/CodeClause_weather_forecast_application_using_an_API/blob/main/assets/cloud.png?raw=true";
             break;
         case 'Clear':
-            weather_img.src = "/assets/clear.png";
+            weather_img.src = "https://github.com/istekhar46/CodeClause_weather_forecast_application_using_an_API/blob/main/assets/clear.png?raw=true";
             break;
         case 'Rain':
-            weather_img.src = "/assets/rain.png";
+            weather_img.src = "https://github.com/istekhar46/CodeClause_weather_forecast_application_using_an_API/blob/main/assets/rain.png?raw=true";
             break;
         case 'Mist':
-            weather_img.src = "/assets/mist.png";
+            weather_img.src = "https://github.com/istekhar46/CodeClause_weather_forecast_application_using_an_API/blob/main/assets/mist.png?raw=true";
             break;
         case 'Snow':
-            weather_img.src = "/assets/snow.png";
+            weather_img.src = "https://github.com/istekhar46/CodeClause_weather_forecast_application_using_an_API/blob/main/assets/snow.png?raw=true";
             break;
 
     }
