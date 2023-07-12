@@ -1,29 +1,63 @@
-const options = {
-    method: 'GET',
-    headers: {
-        'content-type': 'application/octet-stream',
-        'X-RapidAPI-Key': '50b74be4abmsh3612e33a5aa0344p120b8ejsn2a83698e62d4',
-        'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+const inputBox = document.querySelector('.input-box');
+const searchBtn = document.getElementById('searchBtn');
+const weather_img = document.querySelector('.weather-img');
+const temperature = document.querySelector('.temperature');
+const description = document.querySelector('.description');
+const humidity = document.getElementById('humidity');
+const wind_speed = document.getElementById('wind-speed');
+
+const location_not_found = document.querySelector('.location-not-found');
+
+const weather_body = document.querySelector('.weather-body');
+
+
+async function checkWeather(city){
+    const api_key = "29c1a65a434919e4305c10baa008d875";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+
+    const weather_data = await fetch(`${url}`).then(response => response.json());
+
+
+    if(weather_data.cod === `404`){
+        location_not_found.style.display = "flex";
+        weather_body.style.display = "none";
+        console.log("error");
+        return;
     }
-};
+
+    console.log("run");
+    location_not_found.style.display = "none";
+    weather_body.style.display = "flex";
+    temperature.innerHTML = `${Math.round(weather_data.main.temp - 273.15)}°C`;
+    description.innerHTML = `${weather_data.weather[0].description}`;
+
+    humidity.innerHTML = `${weather_data.main.humidity}%`;
+    wind_speed.innerHTML = `${weather_data.wind.speed}Km/H`;
 
 
-const getWeather = (city) => {
-    fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city, options)
-        .then(response => response.json())
-        .then((response) => {
+    switch(weather_data.weather[0].main){
+        case 'Clouds':
+            weather_img.src = "/assets/cloud.png";
+            break;
+        case 'Clear':
+            weather_img.src = "/assets/clear.png";
+            break;
+        case 'Rain':
+            weather_img.src = "/assets/rain.png";
+            break;
+        case 'Mist':
+            weather_img.src = "/assets/mist.png";
+            break;
+        case 'Snow':
+            weather_img.src = "/assets/snow.png";
+            break;
 
-            console.log(response)
-            document.getElementById("city-name").innerHTML = document.getElementById("input").value;
-            document.getElementById("temp").innerHTML = response.temp+"<sup>ºC</sup>"
-            document.getElementById("wind").innerHTML = response.wind_speed + " Km/H"
-            document.getElementById("humidity").innerHTML = response.humidity + " %"      
-        }).catch(err => console.log(err))
+    }
 
+    console.log(weather_data);
 }
 
-document.getElementById("button").addEventListener('click', (e) => {
-    e.preventDefault()
-    let city = document.getElementById("input").value
-    getWeather(city);
-})
+
+searchBtn.addEventListener('click', ()=>{
+    checkWeather(inputBox.value);
+});
